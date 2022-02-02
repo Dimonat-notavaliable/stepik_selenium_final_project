@@ -9,7 +9,7 @@ class ProductPage(BasePage):
         self.should_be_product_url()
 
     def should_be_product_url(self):
-        assert "?promo=offer" in self.browser.current_url, "Wrong url for product"
+        assert "?promo=" in self.browser.current_url, "Wrong url for product"
 
     def should_be_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.BASKET_BUTTON), "Basket button is not presented"
@@ -33,4 +33,4 @@ class ProductPage(BasePage):
     def add_to_basket(self):
         add_button = self.browser.find_element(*ProductPageLocators.BASKET_BUTTON)
         add_button.click()
-        # self.solve_quiz_and_get_code()
+        self.solve_quiz_and_get_code()
